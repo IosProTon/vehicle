@@ -1,0 +1,113 @@
+//
+//  PrefixHeader.pch
+//  vehicle
+//
+//  Created by Mac OS on 15/8/11.
+//  Copyright (c) 2015年 Mac OS. All rights reserved.
+//
+#import "AllRequest.h"
+#import "UIcolor+Expanded.h"
+#import "AFNetworking.h"
+#import "UIView+Toast.h"
+#import "MBProgressHUD.h"
+#import "AppDelegate.h"
+#import "JGActionSheet.h"
+#import "GlobalHelper.h"
+#ifndef vehicle_PrefixHeader_pch
+#define vehicle_PrefixHeader_pch
+
+//常用对象
+#define APPDELEGATE ((AppDelegate *)[UIApplication sharedApplication].delegate)
+#define iPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define iphone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(320, 480), [[UIScreen mainScreen] currentMode].size)) : NO)
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size)) : NO)  //|| CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size)
+
+#define iPhone6plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125, 2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size)) : NO)
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// 2.获得RGB颜色
+#define HRColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+#define Bold_16              [UIFont fontWithName:@"Helvetica-Bold" size:16]
+#define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+#define Bold_17              [UIFont fontWithName:@"Helvetica-Bold" size:17]
+#define Bold_18              [UIFont fontWithName:@"Helvetica-Bold" size:18]
+//当前版本号
+#define BUNDLE_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]
+
+
+//服务器地址
+#define HTTPSERVER @"http://192.168.123.115:8080/"        //测试内网
+//#define HTTPSERVER @"http://116.228.73.26:9080/"         //测试外网
+
+//正式地址
+#define HTTPSERVER1 @"http://m.sto.cn:8080/"                  //入口服务
+#define HTTPSERVER2 @"http://vms.sto.cn:8083/"              //车管宝相关服务
+#define HTTPSERVER3 @"http://scp.sto.cn/sto_cp/"              //驾驶舱相关服务
+
+////*****获取版本号
+#define CHECK_SYS_URL [NSString stringWithFormat:@"%@StoInterApp/CheckSysVersion?versionNo=%@&sysType=1",HTTPSERVER1,BUNDLE_VERSION]
+////*****签到接口
+#define APP_SIGN_URL [NSString stringWithFormat:@"%@DriverSignApp/appSign",HTTPSERVER2]
+////*****获取站点
+#define GET_SITE_URL [NSString stringWithFormat:@"%@DriverSignApp/getSite",HTTPSERVER2]
+////*****获取车辆管理接口
+#define GET_SIGNED_VEHICLE_URL [NSString stringWithFormat:@"%@DriverSignApp/getAppSignCount?",HTTPSERVER2]
+////*****获取全国车辆发出到达在途统计接口
+#define GET_ALL_VEHICLE_URL [NSString stringWithFormat:@"%@DriverSignApp/getCarDetail?",HTTPSERVER2]
+////*****获取全国车辆签到车辆统计接口
+#define GET_ALL_SIGNVEHICLE_URL [NSString stringWithFormat:@"%@DriverSignApp/getArriveSignDetail?",HTTPSERVER2]
+////*****获取车辆详情接口
+#define GET_VEHICLEDETAIL_URL [NSString stringWithFormat:@"%@DriverSignApp/getAppSignDetail?",HTTPSERVER2]
+////*****获取大区站点列表
+#define GET_AREALIST_URL [NSString stringWithFormat:@"%@DriverSignApp/getAreaList?",HTTPSERVER2]
+////*****获取公告接口
+#define GET_NOTICE_URL [NSString stringWithFormat:@"%@StoInterApp/getNotice?",HTTPSERVER2]
+////*****车辆进场确认接口
+#define GET_CARENTER_URL [NSString stringWithFormat:@"%@DriverSignApp/updateAppSignStatus?",HTTPSERVER2]
+////*****修改密码接口
+#define GET_MODIFY_PASSWORD_URL [NSString stringWithFormat:@"%@StoInterApp/modifyPassword?",HTTPSERVER1]
+////*****用户登录接口
+#define GET_USERS_LOGIN_URL [NSString stringWithFormat:@"%@StoInterApp/checkUserLogin?",HTTPSERVER1]
+
+
+
+
+
+/////////////////////////////////***************///////////////////////////////////////
+/////////////////////////////////*****驾驶舱*****///////////////////////////////////////
+/////////////////////////////////***************///////////////////////////////////////
+
+////*****全国资产看板信息接口
+#define POST_ALL_INFO_URL [NSString stringWithFormat:@"%@WapAssetsgetAllinfo.action",HTTPSERVER3]
+
+////*****网点资产信息接口
+#define POST_SITE_INFO_URL [NSString stringWithFormat:@"%@WapAssetsgetSiteinfo.action",HTTPSERVER3]
+
+////*****网点基础信息接口
+#define POST_SITE_BASE_INFO_URL [NSString stringWithFormat:@"%@WapBasedatagetSiteBase.action",HTTPSERVER3]
+
+////*****片区基础信息接口
+#define POST_SEGMENTSITE_BASE_INFO_URL [NSString stringWithFormat:@"%@WapBasedatagetSiteBase.action",HTTPSERVER3]
+////*****网点业务量信息接口
+
+#define POST_SITE_WORKING_INFO_URL [NSString stringWithFormat:@"%@WapBasedatagetSiteBase.action",HTTPSERVER3]
+
+////*****时效考核数据接口
+#define POST_EFFECTIVE_EXAMING_URL [NSString stringWithFormat:@"%@WapBasedatagetSiteBase.action",HTTPSERVER3]
+
+////*****转运中心业务数据接口
+#define POST_TRANSITION_CENTER_URL [NSString stringWithFormat:@"%@WapBasedatagetSiteBase.action",HTTPSERVER3]
+
+
+
+
+#endif

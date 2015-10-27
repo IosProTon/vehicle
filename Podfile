@@ -1,0 +1,7 @@
+#pod 'AutoSlideScrollView'
+pod 'Toast', '~> 2.4'
+pod 'MBProgressHUD', '~> 0.9.1'
+ pod 'ZBarSDK'
+pod 'JGActionSheet'
+pod 'MJRefresh'
+pod 'DZNEmptyDataSet'

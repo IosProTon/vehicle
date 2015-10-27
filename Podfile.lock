@@ -1,0 +1,25 @@
+PODS:
+  - DZNEmptyDataSet (1.7.1)
+  - JGActionSheet (1.0.5)
+  - MBProgressHUD (0.9.1)
+  - MJRefresh (2.4.9)
+  - Toast (2.4)
+  - ZBarSDK (1.3.1)
+
+DEPENDENCIES:
+  - DZNEmptyDataSet
+  - JGActionSheet
+  - MBProgressHUD (~> 0.9.1)
+  - MJRefresh
+  - Toast (~> 2.4)
+  - ZBarSDK
+
+SPEC CHECKSUMS:
+  DZNEmptyDataSet: 2a398066c2bf5848f7f693fb50954b5064debd12
+  JGActionSheet: 2cfca820b57a11ec4b4a5655d45ee599fbeddc05
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MJRefresh: be84acb912d0a66364f76a75426698a39528e2ed
+  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
+  ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
+
+COCOAPODS: 0.38.2
