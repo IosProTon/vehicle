@@ -1,6 +1,11 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## AMap2DMap
+
+Copyright © 2014 AutoNavi. All Rights Reserved.
+
+
 ## DZNEmptyDataSet
 
 The MIT License (MIT)

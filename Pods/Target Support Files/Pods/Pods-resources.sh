@@ -58,6 +58,7 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "AMap2DMap/MAMapKit.framework/Versions/3.1.0.56231a5/Resources/AMap.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "ZBarSDK/iphone/res/zbar-back.png"
   install_resource "ZBarSDK/iphone/res/zbar-help.html"
@@ -65,6 +66,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "ZBarSDK/iphone/res/zbar-samples.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "AMap2DMap/MAMapKit.framework/Versions/3.1.0.56231a5/Resources/AMap.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "ZBarSDK/iphone/res/zbar-back.png"
   install_resource "ZBarSDK/iphone/res/zbar-help.html"
